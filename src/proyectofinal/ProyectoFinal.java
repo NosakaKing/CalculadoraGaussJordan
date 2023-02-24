@@ -16,6 +16,7 @@ public class ProyectoFinal {
     public static void main(String[] args) {
         MetodoGaussJordan Gauss = new MetodoGaussJordan();
         Gauss.setVisible(true);
+        System.out.println("Hola mundo");
         
     }
     
