@@ -68,6 +68,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jTxtSol2 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jButtonAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,6 +158,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("=");
 
+        jTxta12.setEditable(false);
         jTxta12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxta12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +172,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel14.setText("=");
 
+        jTxtRes1.setEditable(false);
         jTxtRes1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtRes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,6 +180,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
             }
         });
 
+        jTxtRes2.setEditable(false);
         jTxtRes2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtRes2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +188,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
             }
         });
 
+        jTxta21.setEditable(false);
         jTxta21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxta21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +202,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("+");
 
+        jTxta11.setEditable(false);
         jTxta11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxta11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,6 +210,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
             }
         });
 
+        jTxta22.setEditable(false);
         jTxta22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxta22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,6 +288,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel19.setText("Procedimiento");
 
+        jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -290,6 +298,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setText("Conj Sol: [");
 
+        jTxtSol1.setEditable(false);
         jTxtSol1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtSol1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -297,6 +306,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
             }
         });
 
+        jTxtSol2.setEditable(false);
         jTxtSol2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtSol2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,6 +319,13 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setText("]");
+
+        jButtonAtras.setText("Atrás");
+        jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtrasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -362,8 +379,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                                         .addComponent(jLabel5)
                                         .addGap(2, 2, 2)
                                         .addComponent(jTxtR1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 186, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(jButtonAtras)))
+                        .addGap(0, 80, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -409,9 +429,12 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButtonAtras))
                         .addGap(0, 12, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -540,6 +563,12 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtSol2ActionPerformed
 
+    private void jButtonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtrasActionPerformed
+        MetodoGaussJordan menuP = new MetodoGaussJordan();
+        menuP.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonAtrasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -577,6 +606,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnCalcular;
+    private javax.swing.JButton jButtonAtras;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
