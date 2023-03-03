@@ -4,15 +4,16 @@
  */
 package proyectofinal;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Raul
  */
 public class NumeroIncognitas2 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NumeroIncognitas2
-     */
+    int pos = 0;
+    int pos2 = 0;
+    double [][] matriz = new double [3][2];
     public NumeroIncognitas2() {
         initComponents();
         this.setLocationRelativeTo(null);// al momento de ejecutar la aplicacion lo ventana se  centra en la pantalla
@@ -62,13 +63,14 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTxtSol1 = new javax.swing.JTextField();
         jTxtSol2 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jButtonAtras = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -288,13 +290,6 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel19.setText("Procedimiento");
 
-        jTextField1.setEditable(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel20.setText("Conj Sol: [");
 
@@ -326,6 +321,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                 jButtonAtrasActionPerformed(evt);
             }
         });
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -386,7 +386,6 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                         .addGap(0, 80, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel20)
                         .addGap(4, 4, 4)
@@ -396,8 +395,9 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jTxtSol2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(1, 1, 1)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -439,8 +439,8 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
@@ -480,13 +480,27 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
 
     private void jBtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCalcularActionPerformed
         double X1,X2,Y1,Y2,R1,R2,A11,A12,A21,A22,AR1,AR2;
-        X1 = Double.parseDouble(this.jTxtX1.getText());
-        X2 = Double.parseDouble(this.jTxtX2.getText());
-        Y1 = Double.parseDouble(this.jTxtY1.getText());
-        Y2 = Double.parseDouble(this.jTxtY2.getText());
-        R1 = Double.parseDouble(this.jTxtR1.getText());
-        R2 = Double.parseDouble(this.jTxtR2.getText());
+        X1 = Double.parseDouble(jTxtX1.getText());
+        X2 = Double.parseDouble(jTxtX2.getText());
+        Y1 = Double.parseDouble(jTxtY1.getText());
+        Y2 = Double.parseDouble(jTxtY2.getText());
+        R1 = Double.parseDouble(jTxtR1.getText());
+        R2 = Double.parseDouble(jTxtR2.getText());
+        matriz[0][0] = X1;
+        matriz[0][1] = X2;
+        matriz[1][0] = Y1;
+        matriz[1][1] = Y2;
+        matriz[2][0] = R1;
+        matriz[2][1] = R2;
+        boolean flag = false;
         
+        jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
+       
+        
+      
+        
+       
+       /* 
         A11 = X1;
         A12 = Y1;
         A21 = X2;
@@ -525,6 +539,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
        jTxtRes2.setText(String.valueOf(AR2));
        jTxtSol1.setText(String.valueOf(AR1));
        jTxtSol2.setText(String.valueOf(AR2));
+       */ 
     }//GEN-LAST:event_jBtnCalcularActionPerformed
 
     private void jTxta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxta12ActionPerformed
@@ -550,10 +565,6 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
     private void jTxta22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxta22ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxta22ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTxtSol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtSol1ActionPerformed
         // TODO add your handling code here:
@@ -631,8 +642,9 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTxtR1;
     private javax.swing.JTextField jTxtR2;
     private javax.swing.JTextField jTxtRes1;
