@@ -4,6 +4,7 @@
  */
 package proyectofinal;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 /**
@@ -15,6 +16,8 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
     int pos2 = 0;
     double x = 0;
     double [][] matriz = new double [3][2];
+    DecimalFormat df = new DecimalFormat("0.00");
+    DecimalFormat ent = new DecimalFormat("0");
     public NumeroIncognitas2() {
         initComponents();
         this.setLocationRelativeTo(null);// al momento de ejecutar la aplicacion lo ventana se  centra en la pantalla
@@ -480,7 +483,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtY2ActionPerformed
 
     private void jBtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCalcularActionPerformed
-        double X1,X2,Y1,Y2,R1,R2,A11,A12,A21,A22,AR1,AR2;
+        double X1,X2,Y1,Y2,R1,R2,A11,A12,A21,A22,AR1,AR2, numeror;
         X1 = Double.parseDouble(jTxtX1.getText());
         X2 = Double.parseDouble(jTxtX2.getText());
         Y1 = Double.parseDouble(jTxtY1.getText());
@@ -495,25 +498,37 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         matriz[2][0] = R1;
         matriz[2][1] = R2;
         boolean flag = false;
-<<<<<<< HEAD
         jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
-        
-=======
-        
-       // jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
-       
-       
-        for (pos = 0; pos < 3; pos++) {
-            for (pos2 = 0; pos2 < 2; pos2++) {
-                x = matriz [pos][pos2];
-                System.out.println(x);
-                
+        jTextArea1.append("\n");
+        if (X1!=1) {
+            jTextArea1.append("F1/"+X1);
+            jTextArea1.append("\n");
+            double div = X1;
+            X1=X1/div;
+            Y1=Y1/div;
+            R1 = R1/div;
+            matriz[0][0] = X1;
+            matriz[0][1] = X2;
+            matriz[1][0] = Y1;
+            matriz[1][1] = Y2;
+            matriz[2][0] = R1;
+            matriz[2][1] = R2;
+            System.out.println(Y1);
+            for (pos2 = 0;  pos2< 2; pos2++) {
+                for (pos = 0; pos < 3; pos++) {
+                    if (matriz[pos][pos2]%1==0) {
+                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
+                        
+                    }else{
+                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
+                    }
+                }
+                jTextArea1.append("\n");
             }
+             
+            
             
         }
-        
-       
->>>>>>> 1f7387befde76d66dbb6b70d45acb531f1a4fd76
        /* 
         A11 = X1;
         A12 = Y1;
