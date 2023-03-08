@@ -493,13 +493,8 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         matriz[2][0] = R1;
         matriz[2][1] = R2;
         boolean flag = false;
-        
         jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
-       
         
-      
-        
-       
        /* 
         A11 = X1;
         A12 = Y1;
