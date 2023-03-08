@@ -13,6 +13,7 @@ import java.util.Arrays;
 public class NumeroIncognitas2 extends javax.swing.JFrame {
     int pos = 0;
     int pos2 = 0;
+    double x = 0;
     double [][] matriz = new double [3][2];
     public NumeroIncognitas2() {
         initComponents();
@@ -486,6 +487,7 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         Y2 = Double.parseDouble(jTxtY2.getText());
         R1 = Double.parseDouble(jTxtR1.getText());
         R2 = Double.parseDouble(jTxtR2.getText());
+       
         matriz[0][0] = X1;
         matriz[0][1] = X2;
         matriz[1][0] = Y1;
@@ -494,10 +496,17 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         matriz[2][1] = R2;
         boolean flag = false;
         
-        jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
+       // jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
        
-        
-      
+       
+        for (pos = 0; pos < 3; pos++) {
+            for (pos2 = 0; pos2 < 2; pos2++) {
+                x = matriz [pos][pos2];
+                System.out.println(x);
+                
+            }
+            
+        }
         
        
        /* 
