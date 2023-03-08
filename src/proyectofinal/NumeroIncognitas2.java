@@ -521,14 +521,61 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                         
                     }else{
                     jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
-                    }
+                        }
+                }
+                jTextArea1.append("\n");
+            }   
+        }
+       if (X2>0) {
+              jTextArea1.append("-"+X2+"(F1) + F2");
+              jTextArea1.append("\n");
+              double mul = -X2;
+              X2 = mul * X1 + X2;
+              Y2 = mul * Y1 + Y2;
+              R2 = mul * R1 + R2;
+               matriz[0][0] = X1;
+                matriz[0][1] = X2;
+                matriz[1][0] = Y1;
+                matriz[1][1] = Y2;
+                matriz[2][0] = R1;
+                matriz[2][1] = R2;
+               for (pos2 = 0;  pos2< 2; pos2++) {
+                for (pos = 0; pos < 3; pos++) {
+                    if (matriz[pos][pos2]%1==0) {
+                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
+                        
+                    }else{
+                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
+                        }
+                }
+                jTextArea1.append("\n");
+            }   
+              
+          }else{
+           jTextArea1.append(X2*(-1)+"(F1) + F2");
+              jTextArea1.append("\n");
+              double mul = X2*(-1);
+              X2 = mul * X1 + X2;
+              Y2 = mul * Y1 + Y2;
+              R2 = mul * R1 + R2;
+               matriz[0][0] = X1;
+                matriz[0][1] = X2;
+                matriz[1][0] = Y1;
+                matriz[1][1] = Y2;
+                matriz[2][0] = R1;
+                matriz[2][1] = R2;
+               for (pos2 = 0;  pos2< 2; pos2++) {
+                for (pos = 0; pos < 3; pos++) {
+                    if (matriz[pos][pos2]%1==0) {
+                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
+                        
+                    }else{
+                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
+                        }
                 }
                 jTextArea1.append("\n");
             }
-             
-            
-            
-        }
+       }
        /* 
         A11 = X1;
         A12 = Y1;
