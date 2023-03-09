@@ -6,19 +6,71 @@ package proyectofinal;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
-
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DocumentFilter;
 /**
  *
  * @author Raul
  */
 public class NumeroIncognitas2 extends javax.swing.JFrame {
+    double X1, X2, Y1, Y2, R1, R2;
     int pos = 0;
     int pos2 = 0;
     double x = 0;
     double [][] matriz = new double [3][2];
     DecimalFormat df = new DecimalFormat("0.00");
     DecimalFormat ent = new DecimalFormat("0");
-    public NumeroIncognitas2() {
+    public class SymbolAndNumberFilter extends DocumentFilter {
+
+        public void insertString(DocumentFilter.FilterBypass fb, int offset, String string,AttributeSet attr) throws BadLocationException {
+            // Permite solo simbolos y numeros
+            if (string.matches("[0-9\\p{Punct}]+")) {
+                super.insertString(fb, offset, string, attr);
+            }
+        }
+
+        public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text, AttributeSet attrs) throws BadLocationException {
+            // Permite solo simbolos y numeros
+            if (text.matches("[0-9\\p{Punct}]+")) {
+                super.replace(fb, offset, length, text, attrs);
+            }
+        }
+    }
+
+    public void imprimir() {
+        for (pos2 = 0; pos2 < 2; pos2++) {
+            for (pos = 0; pos < 3; pos++) {
+                if (matriz[pos][pos2] % 1 == 0) {
+                    if (pos == 2) {
+                        jTextArea1.append("|  " + ent.format(matriz[pos][pos2]));
+                    } else {
+                        jTextArea1.append(ent.format(matriz[pos][pos2]) + "\t");
+                    }
+
+                } else {
+                    if (pos == 2) {
+                        jTextArea1.append("|" + df.format(matriz[pos][pos2]));
+                    } else {
+                        jTextArea1.append(df.format(matriz[pos][pos2]) + "\t");
+                    }
+
+                }
+            }
+            jTextArea1.append("\n");
+        }
+        jTextArea1.append("\n");
+    }
+    public void matrices(){
+            matriz[0][0] = X1;
+            matriz[0][1] = X2;
+            matriz[1][0] = Y1;
+            matriz[1][1] = Y2;
+            matriz[2][0] = R1;
+            matriz[2][1] = R2;
+    }    
+public NumeroIncognitas2() {
         initComponents();
         this.setLocationRelativeTo(null);// al momento de ejecutar la aplicacion lo ventana se  centra en la pantalla
     }
@@ -87,6 +139,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                 jTxtX1ActionPerformed(evt);
             }
         });
+        jTxtX1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtX1KeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("X");
@@ -98,6 +155,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jTxtY1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtY1ActionPerformed(evt);
+            }
+        });
+        jTxtY1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtY1KeyTyped(evt);
             }
         });
 
@@ -113,6 +175,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                 jTxtR1ActionPerformed(evt);
             }
         });
+        jTxtR1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtR1KeyTyped(evt);
+            }
+        });
 
         jTxtR2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtR2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,11 +187,21 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
                 jTxtR2ActionPerformed(evt);
             }
         });
+        jTxtR2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtR2KeyTyped(evt);
+            }
+        });
 
         jTxtX2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtX2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtX2ActionPerformed(evt);
+            }
+        });
+        jTxtX2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtX2KeyTyped(evt);
             }
         });
 
@@ -138,6 +215,11 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         jTxtY2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtY2ActionPerformed(evt);
+            }
+        });
+        jTxtY2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTxtY2KeyTyped(evt);
             }
         });
 
@@ -483,139 +565,88 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtY2ActionPerformed
 
     private void jBtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCalcularActionPerformed
-        double X1,X2,Y1,Y2,R1,R2,A11,A12,A21,A22,AR1,AR2, numeror;
         X1 = Double.parseDouble(jTxtX1.getText());
         X2 = Double.parseDouble(jTxtX2.getText());
         Y1 = Double.parseDouble(jTxtY1.getText());
         Y2 = Double.parseDouble(jTxtY2.getText());
         R1 = Double.parseDouble(jTxtR1.getText());
         R2 = Double.parseDouble(jTxtR2.getText());
-       
-        matriz[0][0] = X1;
-        matriz[0][1] = X2;
-        matriz[1][0] = Y1;
-        matriz[1][1] = Y2;
-        matriz[2][0] = R1;
-        matriz[2][1] = R2;
+        matrices();
         boolean flag = false;
-        jTextArea1.setText( matriz[0][0]+"\t" + matriz[1][0] +"\t|   "+matriz [2][0] + "\n" + matriz[0][1]+"\t" + matriz[1][1] +"\t|   "+matriz [2][1] + "\n");
-        jTextArea1.append("\n");
-        if (X1!=1) {
-            jTextArea1.append("F1/"+X1);
+        imprimir();
+        if (X1 != 1) {
+            jTextArea1.append("F1/" + X1);
             jTextArea1.append("\n");
             double div = X1;
-            X1=X1/div;
-            Y1=Y1/div;
-            R1 = R1/div;
-            matriz[0][0] = X1;
-            matriz[0][1] = X2;
-            matriz[1][0] = Y1;
-            matriz[1][1] = Y2;
-            matriz[2][0] = R1;
-            matriz[2][1] = R2;
-            System.out.println(Y1);
-            for (pos2 = 0;  pos2< 2; pos2++) {
-                for (pos = 0; pos < 3; pos++) {
-                    if (matriz[pos][pos2]%1==0) {
-                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
-                        
-                    }else{
-                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
-                        }
-                }
-                jTextArea1.append("\n");
-            }   
+            X1 = X1 / div;
+            Y1 = Y1 / div;
+            R1 = R1 / div;
+            matrices();
+            imprimir();
+            
         }
-       if (X2>0) {
-              jTextArea1.append("-"+X2+"(F1) + F2");
-              jTextArea1.append("\n");
-              double mul = -X2;
-              X2 = mul * X1 + X2;
-              Y2 = mul * Y1 + Y2;
-              R2 = mul * R1 + R2;
-               matriz[0][0] = X1;
-                matriz[0][1] = X2;
-                matriz[1][0] = Y1;
-                matriz[1][1] = Y2;
-                matriz[2][0] = R1;
-                matriz[2][1] = R2;
-               for (pos2 = 0;  pos2< 2; pos2++) {
-                for (pos = 0; pos < 3; pos++) {
-                    if (matriz[pos][pos2]%1==0) {
-                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
-                        
-                    }else{
-                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
-                        }
-                }
-                jTextArea1.append("\n");
-            }   
-              
-          }else{
-           jTextArea1.append(X2*(-1)+"(F1) + F2");
-              jTextArea1.append("\n");
-              double mul = X2*(-1);
-              X2 = mul * X1 + X2;
-              Y2 = mul * Y1 + Y2;
-              R2 = mul * R1 + R2;
-               matriz[0][0] = X1;
-                matriz[0][1] = X2;
-                matriz[1][0] = Y1;
-                matriz[1][1] = Y2;
-                matriz[2][0] = R1;
-                matriz[2][1] = R2;
-               for (pos2 = 0;  pos2< 2; pos2++) {
-                for (pos = 0; pos < 3; pos++) {
-                    if (matriz[pos][pos2]%1==0) {
-                        jTextArea1.append(ent.format(matriz [pos] [pos2]) +"\t");
-                        
-                    }else{
-                    jTextArea1.append(df.format(matriz [pos] [pos2]) +"\t");
-                        }
-                }
-                jTextArea1.append("\n");
-            }
-       }
-       /* 
-        A11 = X1;
-        A12 = Y1;
-        A21 = X2;
-        A22 = Y2;
-        AR1 = R1;
-        AR2 = R2;
-        if (A11 != 1){
-            A12 = A12/A11;
-            AR1 = AR1/A11;
-            A11 = A11/A11;
-        }else{
-            A11 = (A21)/A21;
-            A12 = (A12+A22)/A21;
-            AR1 = (AR1 + AR2)/A21;
+        if (X2 > 0) {
+            jTextArea1.append("-" + X2 + "(F1) + F2");
+            jTextArea1.append("\n");
+            double mul = -X2;
+            X2 = mul * X1 + X2;
+            Y2 = mul * Y1 + Y2;
+            R2 = mul * R1 + R2;
+            matrices();
+            imprimir();
+        } else {
+            jTextArea1.append(X2 * (-1) + "(F1) + F2");
+            jTextArea1.append("\n");
+            double mul = X2 * (-1);
+            X2 = mul * X1 + X2;
+            Y2 = mul * Y1 + Y2;
+            R2 = mul * R1 + R2;
+            matrices();
+            imprimir();
+            
         }
-        if (A21 != 0){
-            A22 = A22-(A21*A12);
-            AR2 = AR2-(A21*AR1);
-            A21 = A21-(A21*A11);
+        if (Y2 != 1) {
+            jTextArea1.append("F2/" + Y2);
+            jTextArea1.append("\n");
+            double div = Y2;
+            X2 = X2 / div;
+            Y2 = Y2 / div;
+            R2 = R2 / div;
+            matrices();
+            imprimir();
         }
-        if (A22 != 1){
-            if (A22 != 0){
-                AR2 = AR2/A22;
-                A22 = A22/A22;
-            }
+        if (Y1 > 0) {
+            jTextArea1.append("-" + Y1 + "(F2) + F1");
+            jTextArea1.append("\n");
+            double mul = -Y1;
+            X1 = mul * X2 + X1;
+            Y1 = mul * Y2 + Y1;
+            R1 = mul * R2 + R1;
+            matrices();
+            imprimir();
+        } else {
+            jTextArea1.append(Y1 * (-1) + "(F2) + F1");
+            jTextArea1.append("\n");
+            double mul = Y1 * (-1);
+            X1 = mul * X2 + X1;
+            Y1 = mul * Y2 + Y1;
+            R1 = mul * R2 + R1;
+            matrices();
+            imprimir();
+            System.out.println("a");
+            
         }
-        if (A12 != 0){
-            AR1 = AR1-(A12*AR2);
-            A12 = A12-(A12*A22);
-        }
-       jTxta11.setText(String.valueOf(A11));
-       jTxta12.setText(String.valueOf(A12));
-       jTxtRes1.setText(String.valueOf(AR1));
-       jTxta21.setText(String.valueOf(A21));
-       jTxta22.setText(String.valueOf(A22));
-       jTxtRes2.setText(String.valueOf(AR2));
-       jTxtSol1.setText(String.valueOf(AR1));
-       jTxtSol2.setText(String.valueOf(AR2));
-       */ 
+       //Falta por corregirr la cantidad de decimales mostrados en los cuadros de conjuto solucion y matriz respuesta
+        /*jTextX1F.setText(Double.toString(X1));
+        jTextX2F.setText(Double.toString(X2));
+        jTextY1F.setText(Double.toString(Y1));
+        jTextY2F.setText(Double.toString(Y2));
+        jTextR1F.setText(Double.toString(R1));
+        jTextR2F.setText(Double.toString(R2));
+        
+        jTxtSol1.setText(Double.toString(matriz[2][0]));
+        jTxtSol2.setText(Double.toString(matriz[2][1]));
+        */
     }//GEN-LAST:event_jBtnCalcularActionPerformed
 
     private void jTxta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxta12ActionPerformed
@@ -656,6 +687,30 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonAtrasActionPerformed
 
+    private void jTxtX1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtX1KeyTyped
+        ((AbstractDocument) jTxtX1.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtX1KeyTyped
+
+    private void jTxtY1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtY1KeyTyped
+         ((AbstractDocument) jTxtY1.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtY1KeyTyped
+
+    private void jTxtR1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtR1KeyTyped
+        ((AbstractDocument) jTxtR1.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtR1KeyTyped
+
+    private void jTxtX2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtX2KeyTyped
+        ((AbstractDocument) jTxtX2.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtX2KeyTyped
+
+    private void jTxtY2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtY2KeyTyped
+        ((AbstractDocument) jTxtY2.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtY2KeyTyped
+
+    private void jTxtR2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtR2KeyTyped
+        ((AbstractDocument) jTxtR2.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+    }//GEN-LAST:event_jTxtR2KeyTyped
+                                                     
     /**
      * @param args the command line arguments
      */
