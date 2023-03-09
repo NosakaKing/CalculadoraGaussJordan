@@ -6,25 +6,31 @@ package proyectofinal;
 
 import java.text.DecimalFormat;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DocumentFilter;
+
 /**
  *
  * @author Raul
  */
 public class NumeroIncognitas2 extends javax.swing.JFrame {
+
     double X1, X2, Y1, Y2, R1, R2;
     int pos = 0;
     int pos2 = 0;
     double x = 0;
-    double [][] matriz = new double [3][2];
+    double[][] matriz = new double[3][2];
     DecimalFormat df = new DecimalFormat("0.00");
     DecimalFormat ent = new DecimalFormat("0");
+    String Redondeado = "";
+    String Redondeado1 = "";
+
     public class SymbolAndNumberFilter extends DocumentFilter {
 
-        public void insertString(DocumentFilter.FilterBypass fb, int offset, String string,AttributeSet attr) throws BadLocationException {
+        public void insertString(DocumentFilter.FilterBypass fb, int offset, String string, AttributeSet attr) throws BadLocationException {
             // Permite solo simbolos y numeros
             if (string.matches("[0-9\\p{Punct}]+")) {
                 super.insertString(fb, offset, string, attr);
@@ -62,15 +68,17 @@ public class NumeroIncognitas2 extends javax.swing.JFrame {
         }
         jTextArea1.append("\n");
     }
-    public void matrices(){
-            matriz[0][0] = X1;
-            matriz[0][1] = X2;
-            matriz[1][0] = Y1;
-            matriz[1][1] = Y2;
-            matriz[2][0] = R1;
-            matriz[2][1] = R2;
-    }    
-public NumeroIncognitas2() {
+
+    public void matrices() {
+        matriz[0][0] = X1;
+        matriz[0][1] = X2;
+        matriz[1][0] = Y1;
+        matriz[1][1] = Y2;
+        matriz[2][0] = R1;
+        matriz[2][1] = R2;
+    }
+
+    public NumeroIncognitas2() {
         initComponents();
         this.setLocationRelativeTo(null);// al momento de ejecutar la aplicacion lo ventana se  centra en la pantalla
     }
@@ -127,6 +135,8 @@ public NumeroIncognitas2() {
         jButtonAtras = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -318,7 +328,7 @@ public NumeroIncognitas2() {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTxta21, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
@@ -332,7 +342,7 @@ public NumeroIncognitas2() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel12)
                         .addGap(2, 2, 2)
-                        .addComponent(jTxtRes2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTxtRes2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTxta11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
@@ -346,8 +356,8 @@ public NumeroIncognitas2() {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel14)
                         .addGap(2, 2, 2)
-                        .addComponent(jTxtRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(jTxtRes1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,6 +411,7 @@ public NumeroIncognitas2() {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel22.setText("]");
 
+        jButtonAtras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButtonAtras.setText("Atrás");
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -413,6 +424,12 @@ public NumeroIncognitas2() {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel23.setText("Y");
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel24.setText("X");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -422,7 +439,7 @@ public NumeroIncognitas2() {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19)
-                .addGap(95, 95, 95))
+                .addGap(129, 129, 129))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
@@ -465,30 +482,56 @@ public NumeroIncognitas2() {
                                         .addComponent(jLabel5)
                                         .addGap(2, 2, 2)
                                         .addComponent(jTxtR1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(jButtonAtras)))
-                        .addGap(0, 80, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 84, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(4, 4, 4)
-                        .addComponent(jTxtSol1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel21)
-                        .addGap(2, 2, 2)
-                        .addComponent(jTxtSol2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonAtras)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(121, 121, 121))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(jLabel20)
+                                .addGap(4, 4, 4)
+                                .addComponent(jTxtSol1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)
+                                .addComponent(jLabel21)
+                                .addGap(3, 3, 3)
+                                .addComponent(jTxtSol2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel24))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(jTxtSol1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTxtSol2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel21)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)
@@ -515,25 +558,11 @@ public NumeroIncognitas2() {
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButtonAtras))
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel20)
-                            .addComponent(jTxtSol1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTxtSol2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))))
+                        .addComponent(jButtonAtras)))
                 .addContainerGap())
         );
 
@@ -583,7 +612,7 @@ public NumeroIncognitas2() {
             R1 = R1 / div;
             matrices();
             imprimir();
-            
+
         }
         if (X2 > 0) {
             jTextArea1.append("-" + X2 + "(F1) + F2");
@@ -603,7 +632,7 @@ public NumeroIncognitas2() {
             R2 = mul * R1 + R2;
             matrices();
             imprimir();
-            
+
         }
         if (Y2 != 1) {
             jTextArea1.append("F2/" + Y2);
@@ -634,19 +663,32 @@ public NumeroIncognitas2() {
             matrices();
             imprimir();
             System.out.println("a");
-            
         }
-       //Falta por corregirr la cantidad de decimales mostrados en los cuadros de conjuto solucion y matriz respuesta
-        /*jTextX1F.setText(Double.toString(X1));
-        jTextX2F.setText(Double.toString(X2));
-        jTextY1F.setText(Double.toString(Y1));
-        jTextY2F.setText(Double.toString(Y2));
-        jTextR1F.setText(Double.toString(R1));
-        jTextR2F.setText(Double.toString(R2));
-        
-        jTxtSol1.setText(Double.toString(matriz[2][0]));
-        jTxtSol2.setText(Double.toString(matriz[2][1]));
-        */
+
+        if (matriz[2][0] % 1 == 0) {
+            Redondeado = String.format("%.0f", matriz[2][0]);
+            jTxtRes1.setText((Redondeado));
+            jTxtSol1.setText((Redondeado));
+        } else {
+            Redondeado = String.format("%.2f", matriz[2][0]);
+            jTxtRes1.setText((Redondeado));
+            jTxtSol1.setText((Redondeado));
+        }
+        if (matriz[2][1] % 1 == 0) {
+            Redondeado1 = String.format("%.0f", matriz[2][1]);
+            jTxtRes2.setText((Redondeado1));
+            jTxtSol2.setText((Redondeado1));
+        } else {
+            Redondeado1 = String.format("%.2f", matriz[2][1]);
+            jTxtRes2.setText((Redondeado1));
+            jTxtSol2.setText((Redondeado1));
+        }
+        //Falta por corregirr la cantidad de decimales mostrados en los cuadros de conjuto solucion y matriz respuesta
+        jTxta11.setText(Double.toString(X1));
+        jTxta21.setText(Double.toString(X2));
+        jTxta12.setText(Double.toString(Y1));
+        jTxta22.setText(Double.toString(Y2));
+
     }//GEN-LAST:event_jBtnCalcularActionPerformed
 
     private void jTxta12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxta12ActionPerformed
@@ -692,7 +734,7 @@ public NumeroIncognitas2() {
     }//GEN-LAST:event_jTxtX1KeyTyped
 
     private void jTxtY1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtY1KeyTyped
-         ((AbstractDocument) jTxtY1.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
+        ((AbstractDocument) jTxtY1.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
     }//GEN-LAST:event_jTxtY1KeyTyped
 
     private void jTxtR1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtR1KeyTyped
@@ -710,7 +752,7 @@ public NumeroIncognitas2() {
     private void jTxtR2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTxtR2KeyTyped
         ((AbstractDocument) jTxtR2.getDocument()).setDocumentFilter(new SymbolAndNumberFilter());
     }//GEN-LAST:event_jTxtR2KeyTyped
-                                                     
+
     /**
      * @param args the command line arguments
      */
@@ -764,6 +806,8 @@ public NumeroIncognitas2() {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
