@@ -211,7 +211,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jButtonAtras.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAtras.setText("Atrás");
         jButtonAtras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAtras.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAtrasActionPerformed(evt);
@@ -237,6 +237,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextDiv1.setBackground(new java.awt.Color(27, 27, 27));
         jTextDiv1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextDiv1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextDiv1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextDiv1.setHorizontalAlignment(JTextField.RIGHT);
         jTextDiv1.addKeyListener( new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent e) {
@@ -255,6 +256,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextDiv2.setBackground(new java.awt.Color(27, 27, 27));
         jTextDiv2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextDiv2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextDiv2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextDiv2.setHorizontalAlignment(JTextField.RIGHT);
         jTextDiv2.addKeyListener( new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent e) {
@@ -274,6 +276,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextRD.setBackground(new java.awt.Color(27, 27, 27));
         jTextRD.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextRD.setForeground(new java.awt.Color(255, 255, 255));
+        jTextRD.setCaretColor(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -340,6 +343,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtSol1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtSol1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtSol1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtSol1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtSol1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtSol1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -351,6 +355,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtSol3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtSol3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtSol3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtSol3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtSol3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtSol3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,6 +371,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtSol2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtSol2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtSol2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtSol2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtSol2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtSol2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,6 +389,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextX1.setBackground(new java.awt.Color(27, 27, 27));
         jTextX1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextX1.setForeground(new java.awt.Color(255, 255, 255));
+        jTextX1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextX1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextX1.setHorizontalAlignment(JTextField.RIGHT);
         jTextX1.addActionListener(new java.awt.event.ActionListener() {
@@ -417,6 +424,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtY1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtY1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtY1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtY1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtY1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtY1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,6 +458,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtR1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtR1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtR1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtR1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtR1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtR1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -473,6 +482,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextX2.setBackground(new java.awt.Color(27, 27, 27));
         jTextX2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextX2.setForeground(new java.awt.Color(255, 255, 255));
+        jTextX2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextX2.setHorizontalAlignment(JTextField.RIGHT);
         jTextX2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,6 +516,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtY2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtY2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtY2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtY2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtY2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtY2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,6 +550,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtR2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtR2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtR2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtR2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtR2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtR2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -562,6 +574,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZ2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZ2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZ2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZ2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZ2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZ2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -600,6 +613,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZ1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZ1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZ1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZ1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZ1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZ1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -638,6 +652,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZ3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZ3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZ3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZ3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZ3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZ3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -661,6 +676,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTextX3.setBackground(new java.awt.Color(27, 27, 27));
         jTextX3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTextX3.setForeground(new java.awt.Color(255, 255, 255));
+        jTextX3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextX3.setHorizontalAlignment(JTextField.RIGHT);
         jTextX3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -684,6 +700,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtY3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtY3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtY3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtY3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtY3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtY3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -727,6 +744,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtR3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtR3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtR3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtR3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtR3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtR3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -878,7 +896,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jBtnCalcular.setForeground(new java.awt.Color(255, 255, 255));
         jBtnCalcular.setText("Calcular");
         jBtnCalcular.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jBtnCalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBtnCalcular.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBtnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnCalcularActionPerformed(evt);
@@ -890,7 +908,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jBClean.setForeground(new java.awt.Color(255, 255, 255));
         jBClean.setText("Limpiar");
         jBClean.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jBClean.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBClean.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jBClean.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCleanActionPerformed(evt);
@@ -914,6 +932,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtXR1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtXR1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtXR1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtXR1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtXR1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTxtXR1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -946,6 +965,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtYR1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtYR1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtYR1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtYR1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtYR1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtYR1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -978,6 +998,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtRes1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtRes1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtRes1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtRes1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtRes1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtRes1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1002,6 +1023,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtXR2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtXR2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtXR2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtXR2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtXR2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtXR2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1034,6 +1056,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtYR2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtYR2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtYR2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtYR2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtYR2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtYR2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1066,6 +1089,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtRes2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtRes2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtRes2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtRes2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtRes2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtRes2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1090,6 +1114,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZR2.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZR2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZR2.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZR2.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZR2.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZR2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1126,6 +1151,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZR1.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZR1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZR1.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZR1.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZR1.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZR1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1162,6 +1188,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtZR3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtZR3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtZR3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtZR3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtZR3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtZR3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1186,6 +1213,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtXR3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtXR3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtXR3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtXR3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtXR3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtXR3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1210,6 +1238,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtYR3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtYR3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtYR3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtYR3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtYR3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtYR3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1250,6 +1279,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
         jTxtRes3.setBackground(new java.awt.Color(27, 27, 27));
         jTxtRes3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jTxtRes3.setForeground(new java.awt.Color(255, 255, 255));
+        jTxtRes3.setCaretColor(new java.awt.Color(255, 255, 255));
         jTxtRes3.setHorizontalAlignment(JTextField.RIGHT);
         jTxtRes3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1471,8 +1501,7 @@ public class NumeroIncognitas3 extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
-                                .addGap(34, 34, 34)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(34, 34, 34))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(328, 328, 328)
                         .addComponent(jLabel1)
